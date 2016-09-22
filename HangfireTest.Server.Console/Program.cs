@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using Hangfire;
 using Hangfire.Logging;
@@ -6,6 +7,7 @@ using Hangfire.Logging.LogProviders;
 using HangfireTest.Core;
 using Ninject;
 using Ninject.Modules;
+using RestSharp;
 using Topshelf;
 
 namespace HangfireTest.Server.Console
@@ -45,7 +47,11 @@ namespace HangfireTest.Server.Console
                         new StandardKernel(
                             new HangfireModule())));
 
-                _host = new BackgroundJobServer();
+                _host = new BackgroundJobServer(new BackgroundJobServerOptions
+                {
+                    Queues = (ConfigurationManager.AppSettings["Hangfire.Queues"] ?? "default").Split(','),
+                    WorkerCount = int.Parse((ConfigurationManager.AppSettings["Hangfire.WorkerCount"] ?? "1"))
+                });
             }
 
             public void Stop()
@@ -59,7 +65,8 @@ namespace HangfireTest.Server.Console
     {
         public override void Load()
         {
-            Bind<ICalculator>().To<LocalCalculator>();
+            var restBaseUrl = ConfigurationManager.AppSettings["RestBaseUrl"] ?? "http://localhost:17688/api/calc";
+            Bind<ICalculator>().ToConstructor(c => new RestCalculator(new RestClient(restBaseUrl)));
         }
     }
 

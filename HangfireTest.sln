@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangfireTest.Core.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangfireTest.Server.Console", "HangfireTest.Server.Console\HangfireTest.Server.Console.csproj", "{AA1B4E9F-008A-4C9C-8C6F-4733A581B5F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangfireTest.Worker.Console", "HangfireTest.Worker.Console\HangfireTest.Worker.Console.csproj", "{2CE4E1B4-2990-42BE-8691-C41A87BD8103}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AA1B4E9F-008A-4C9C-8C6F-4733A581B5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA1B4E9F-008A-4C9C-8C6F-4733A581B5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA1B4E9F-008A-4C9C-8C6F-4733A581B5F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CE4E1B4-2990-42BE-8691-C41A87BD8103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CE4E1B4-2990-42BE-8691-C41A87BD8103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CE4E1B4-2990-42BE-8691-C41A87BD8103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CE4E1B4-2990-42BE-8691-C41A87BD8103}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

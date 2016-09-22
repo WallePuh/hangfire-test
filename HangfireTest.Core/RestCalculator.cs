@@ -19,9 +19,7 @@ namespace HangfireTest.Core
 
         public double Add(double d1, double d2)
         {
-            var req = new RestRequest("/add", Method.GET);
-            req.AddQueryParameter("arg1", d1.ToString(CultureInfo.InvariantCulture));
-            req.AddQueryParameter("arg2", d2.ToString(CultureInfo.InvariantCulture));
+            var req = new RestRequest($"/add/{d1}/{d2}/", Method.GET);
 
             var response = _restClient.ExecuteGetTaskAsync<double>(req).Result;
             return response.Data;
