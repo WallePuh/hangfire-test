@@ -11,3 +11,5 @@ This is a Hangfire "Agent" that picks up jobs from the queue and executes them. 
 
 ##Worker.Console
 Self hosted http endpoint that listens for calls on '/add/{double}/{double}' and returns the results. Can be configured to sleep before returning the results
+
+This works
