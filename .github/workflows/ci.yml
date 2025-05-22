@@ -25,6 +25,11 @@ jobs:
       - name: Build solution
         run: msbuild HangfireTest.sln /p:Configuration=Release
 
+      - name: Install Visual Studio Test Platform
+        run: |
+          dotnet tool install --global vstest.console
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
       - name: Run tests
         run: |
           vstest.console.exe HangfireTest.Core.Tests/bin/Release/HangfireTest.Core.Tests.dll
