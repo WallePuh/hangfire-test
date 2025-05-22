@@ -28,7 +28,7 @@ jobs:
       - name: Install Visual Studio Test Platform
         run: |
           dotnet tool install --global vstest.console
-          echo "##[add-path]$HOME/.dotnet/tools"
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
       - name: Run tests
         run: |
